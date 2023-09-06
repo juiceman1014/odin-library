@@ -19,9 +19,13 @@ ul{
 .header{
     display: flex;
     justify-content: space-between;
+    background-color: peachpuff;
+    padding: 50px;
 }
 
 .footer{
     display: flex;
     justify-content: center;
+    background-color: peachpuff;
+    padding: 25px;
 }
