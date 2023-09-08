@@ -30,7 +30,7 @@ function displayBook(){
         <p>Title: ${book.title}</p>
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
-        <p>readStatus: ${book.readStatus}</p>
+        <p>Read?: ${book.readStatus}</p>
         `
 
         bodyContainer.appendChild(bookDiv);
@@ -38,6 +38,6 @@ function displayBook(){
 }
 
 addBookToLibrary();
-// addBookToLibrary();
-// addBookToLibrary();
+addBookToLibrary();
+addBookToLibrary();
 displayBook();
