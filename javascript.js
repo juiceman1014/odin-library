@@ -5,7 +5,6 @@ function Book(title, author, pages, readStatus){
     this.author = author,
     this.pages = pages,
     this.readStatus = readStatus
-    console.log(title + author + pages + readStatus);
 }
 
 function addBookToLibrary(){
@@ -17,5 +16,13 @@ function addBookToLibrary(){
     myLibrary.push(newBook);
 }
 
+function displayBook(){
+    for(let i = 0; i < myLibrary.length; i++){
+        console.log(myLibrary[i]);
+    }
+}
 
-
+addBookToLibrary();
+addBookToLibrary();
+addBookToLibrary();
+displayBook();
