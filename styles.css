@@ -25,8 +25,10 @@ ul{
 
 .body-container{
     display: flex;
-    flex-grow: 1;
-    justify-content: space-between;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer{
@@ -34,5 +36,14 @@ ul{
     justify-content: center;
     background-color: peachpuff;
     padding: 25px;
+}
+
+.book-card{
+    
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    margin: 10px
+    
 }
 
