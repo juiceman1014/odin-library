@@ -17,12 +17,27 @@ function addBookToLibrary(){
 }
 
 function displayBook(){
+    const bookContainer = document.getElementById("bodyContianer");
+
+    bodyContainer.innerHTML = "";
+
     for(let i = 0; i < myLibrary.length; i++){
-        console.log(myLibrary[i]);
+        const book = myLibrary[i];
+
+        const bookDiv = document.createElement("div");
+        bookDiv.classList.add("book-card");
+        bookDiv.innerHTML= `
+        <p>Title: ${book.title}</p>
+        <p>Author: ${book.author}</p>
+        <p>Pages: ${book.pages}</p>
+        <p>readStatus: ${book.readStatus}</p>
+        `
+
+        bodyContainer.appendChild(bookDiv);
     }
 }
 
 addBookToLibrary();
-addBookToLibrary();
-addBookToLibrary();
+// addBookToLibrary();
+// addBookToLibrary();
 displayBook();
