@@ -16,7 +16,7 @@
         <li>Library</li>
     </ul>
     <ul class = "right-side">
-        <li><button>Add New Book</button></li>
+        <li><button id="showDialog">Add New Book</button></li>
     </ul>
 </div>
 
@@ -30,6 +30,41 @@
 <div class = "footer">
     <div>By: juiceman1014</div>
 </div>
+
+<!-- Add Book Dialog -->
+<dialog id = "addBookDialog">
+    <form>
+        <p>
+            <label>
+                Title:
+                <input type = "text" id = "manualInput" placeholder = "type here">
+            </label>
+        </p>
+        <p>
+            <label>
+                Author:
+                <input type = "text" id = "manualInput" placeholder = "type here">
+            </label>
+        </p>
+        <p>
+            <label>
+                Pages:
+                <input type = "text" id = "manualInput" placeholder = "type here">
+            </label>
+        </p>
+        <p>
+            <label>
+                Read?:
+                <select>
+                    <option value = "default">Choose...</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </label>
+        </p>
+    </form>
+</dialog>
+
     
 </body>
 </html>
