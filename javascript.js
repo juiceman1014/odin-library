@@ -37,7 +37,13 @@ function displayBook(){
     }
 }
 
-addBookToLibrary();
-addBookToLibrary();
-addBookToLibrary();
-displayBook();
+const addButton = document.getElementById("showDialog");
+const bookDialog = document.getElementById("addBookDialog");
+const outputBox = document.querySelector("output");
+const selectStatus = bookDialog.querySelector("select");
+const inputElement = bookDialog.querySelector("input");
+const confirmBtn = bookDialog.querySelector("#confirmBtn");
+
+addButton.addEventListener("click", () => {
+    bookDialog.showModal();
+})
