@@ -47,3 +47,19 @@ const confirmBtn = bookDialog.querySelector("#confirmBtn");
 addButton.addEventListener("click", () => {
     bookDialog.showModal();
 })
+
+bookDialog.addEventListener("close", () => {
+    outputBox.value = 
+        bookDialog.returnValue === "defualt"
+        ? "No return value."
+        :`ReturnValue ${bookDialog.returnValue}.`;
+});
+
+confirmBtn.addEventListener("click", (event) =>{
+    event.preventDefault();
+
+    const selectedValue = selectStatus.value;
+    const inputValue = inputElement.value;
+    const combinedValue = `Dropdown: ${selectedValue}, Input: ${inputValue}`;
+    bookDialog.close(combinedValue);
+})
