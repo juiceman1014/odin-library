@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, readStatus){
     this.title = title,
@@ -17,7 +17,7 @@ function addBookToLibrary(){
 }
 
 function displayBook(){
-    const bookContainer = document.getElementById("bodyContianer");
+    const bookContainer = document.getElementById("bodyContainer");
 
     bodyContainer.innerHTML = "";
 
@@ -33,7 +33,7 @@ function displayBook(){
         <p>Read?: ${book.readStatus}</p>
         `
 
-        bodyContainer.appendChild(bookDiv);
+        bookContainer.appendChild(bookDiv);
     }
 }
 
@@ -44,6 +44,17 @@ const confirmBtn = bookDialog.querySelector("#confirmBtn");
 addButton.addEventListener("click", () => {
     bookDialog.showModal();
 })
+
+window.addEventListener("load", () =>{
+    if(localStorage.getItem("myLibrary")) {
+        myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+        displayBook();
+    }
+});
+
+function saveLibraryToStorage(){
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
 
 confirmBtn.addEventListener("click", (event) =>{
     event.preventDefault();
@@ -56,6 +67,8 @@ confirmBtn.addEventListener("click", (event) =>{
 
     const newBook = new Book(title, author, pages, readStatus);
     myLibrary.push(newBook);
+
+    saveLibraryToStorage();
     bookDialog.close();
     displayBook();
 })
