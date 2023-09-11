@@ -48,18 +48,28 @@ addButton.addEventListener("click", () => {
     bookDialog.showModal();
 })
 
-bookDialog.addEventListener("close", () => {
-    outputBox.value = 
-        bookDialog.returnValue === "defualt"
-        ? "No return value."
-        :`ReturnValue ${bookDialog.returnValue}.`;
-});
+// bookDialog.addEventListener("close", () => {
+//     outputBox.value = 
+//         bookDialog.returnValue === "defualt"
+//         ? "No return value."
+//         :`ReturnValue ${bookDialog.returnValue}.`;
+// });
 
 confirmBtn.addEventListener("click", (event) =>{
     event.preventDefault();
 
-    const selectedValue = selectStatus.value;
-    const inputValue = inputElement.value;
-    const combinedValue = `Dropdown: ${selectedValue}, Input: ${inputValue}`;
-    bookDialog.close(combinedValue);
+    //bookmark: return multiple values
+    // const selectedValue = selectStatus.value;
+    // const inputValue = inputElement.value;
+    // const combinedValue = `Dropdown: ${selectedValue}, Input: ${inputValue}`;
+
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const readStatus = document.getElementById("readStatus").value;
+
+    const newBook = new Book(title, author, pages, readStatus);
+    myLibrary.push(newBook);
+    bookDialog.close();
+    displayBook();
 })
