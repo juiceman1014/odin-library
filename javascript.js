@@ -38,6 +38,7 @@ function displayBook(){
 }
 
 const addButton = document.getElementById("showDialog");
+const bookDialog = document.getElementById("addBookDialog");
 const confirmBtn = bookDialog.querySelector("#confirmBtn");
 
 addButton.addEventListener("click", () => {
