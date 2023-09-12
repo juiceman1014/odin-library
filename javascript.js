@@ -31,6 +31,7 @@ function displayBook(){
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
         <p>Read?: ${book.readStatus}</p>
+        <button>Remove Book</button>
         `
 
         bookContainer.appendChild(bookDiv);
