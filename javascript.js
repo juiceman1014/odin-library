@@ -12,14 +12,14 @@ function Book(title, author, pages, readStatus){
     this.readStatus = readStatus
 }
 
-function addBookToLibrary(){
-    let title = prompt("Title: ");
-    let author = prompt("Author: ");
-    let pages = prompt("Pages: ");
-    let readStatus = prompt("Read?: ");
-    const newBook = new Book(title, author, pages, readStatus);
-    myLibrary.push(newBook);
-}
+// function addBookToLibrary(){
+//     let title = prompt("Title: ");
+//     let author = prompt("Author: ");
+//     let pages = prompt("Pages: ");
+//     let readStatus = prompt("Read?: ");
+//     const newBook = new Book(title, author, pages, readStatus);
+//     myLibrary.push(newBook);
+// }
 
 function displayBook(){
 
@@ -36,6 +36,7 @@ function displayBook(){
         <p>Pages: ${book.pages}</p>
         <p>Read?: ${book.readStatus}</p>
         <button class = "remove-btn" data-book-id="${i}">Remove Book</button>
+        <input type = "checkbox" id = "bookCompletion"> Read
         `
 
         bookContainer.appendChild(bookDiv);
