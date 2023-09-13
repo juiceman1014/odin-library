@@ -9,7 +9,7 @@ function Book(title, author, pages, readStatus){
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.readStatus = readStatus
+    this.read = readStatus
 }
 
 function displayBook(){
@@ -27,11 +27,22 @@ function displayBook(){
         <p>Pages: ${book.pages}</p>
         <p>Read?: ${book.readStatus}</p>
         <button class = "remove-btn" data-book-id="${i}">Remove Book</button>
-        <input type = "checkbox" id = "bookCompletion"> Read
+        <input type="checkbox" class="read-checkbox" data-book-id="${i}" ${book.read ? 'checked' : ''}> Read
         `
 
         bookContainer.appendChild(bookDiv);
     }
+
+
+    const checkboxes = document.querySelectorAll(".read-checkbox");
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", (event) => {
+            const bookId = parseInt(event.target.dataset.bookId, 10);
+            myLibrary[bookId].read = event.target.checked;
+            saveLibraryToStorage();
+        });
+    });
+
 }
 
 addButton.addEventListener("click", () => {
@@ -45,7 +56,8 @@ confirmBtn.addEventListener("click", (event) =>{
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
-    const readStatus = document.getElementById("readStatus").value;
+    const readStatus = document.getElementById("readStatus").checked;
+
 
     const newBook = new Book(title, author, pages, readStatus);
     myLibrary.push(newBook);
