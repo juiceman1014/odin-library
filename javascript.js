@@ -46,47 +46,9 @@ const confirmBtn = bookDialog.querySelector("#confirmBtn");
 
 
 
-
-function removeBookFromLibrary(bookId){
-    
-    myLibrary.splice(bookId, 1);
-    saveLibraryToStorage();
-    displayBook();
-
-
-
-}
-
-
 addButton.addEventListener("click", () => {
     bookDialog.showModal();
 })
-
-window.addEventListener("load", () =>{
-    if(localStorage.getItem("myLibrary")) {
-        myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-        console.log("just refreshed!")
-        displayBook();
-    }
-
-});
-
-bookContainer.addEventListener("click", (event) => {
-    const target = event.target;
-    
-    if (target.classList.contains("remove-btn")) {
-        const bookIdToRemove = parseInt(target.dataset.bookId, 10);
-        console.log(`Removing book with ID: ${bookIdToRemove}`);
-        removeBookFromLibrary(bookIdToRemove);
-    }
-});
-
-
-
-
-function saveLibraryToStorage(){
-    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-}
 
 confirmBtn.addEventListener("click", (event) =>{
     event.preventDefault();
@@ -104,3 +66,34 @@ confirmBtn.addEventListener("click", (event) =>{
     bookDialog.close();
     displayBook();
 })
+
+bookContainer.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (target.classList.contains("remove-btn")) {
+        const bookIdToRemove = parseInt(target.dataset.bookId, 10);
+        console.log(`Removing book with ID: ${bookIdToRemove}`);
+        removeBookFromLibrary(bookIdToRemove);
+    }
+});
+
+function removeBookFromLibrary(bookId){
+    
+    myLibrary.splice(bookId, 1);
+    saveLibraryToStorage();
+    displayBook();
+
+}
+
+window.addEventListener("load", () =>{
+    if(localStorage.getItem("myLibrary")) {
+        myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+        console.log("just refreshed!")
+        displayBook();
+    }
+
+});
+
+function saveLibraryToStorage(){
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
