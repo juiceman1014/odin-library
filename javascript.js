@@ -12,15 +12,6 @@ function Book(title, author, pages, readStatus){
     this.readStatus = readStatus
 }
 
-// function addBookToLibrary(){
-//     let title = prompt("Title: ");
-//     let author = prompt("Author: ");
-//     let pages = prompt("Pages: ");
-//     let readStatus = prompt("Read?: ");
-//     const newBook = new Book(title, author, pages, readStatus);
-//     myLibrary.push(newBook);
-// }
-
 function displayBook(){
 
     bodyContainer.innerHTML = "";
