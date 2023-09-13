@@ -16,8 +16,10 @@ function addBookToLibrary(){
     myLibrary.push(newBook);
 }
 
+const bookContainer = document.getElementById("bodyContainer");
+
 function displayBook(){
-    const bookContainer = document.getElementById("bodyContainer");
+    
 
     bodyContainer.innerHTML = "";
 
@@ -46,9 +48,13 @@ const confirmBtn = bookDialog.querySelector("#confirmBtn");
 
 
 function removeBookFromLibrary(bookId){
+    
     myLibrary.splice(bookId, 1);
     saveLibraryToStorage();
     displayBook();
+
+
+
 }
 
 
@@ -59,22 +65,24 @@ addButton.addEventListener("click", () => {
 window.addEventListener("load", () =>{
     if(localStorage.getItem("myLibrary")) {
         myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+        console.log("just refreshed!")
         displayBook();
     }
 
-    const removeBtn = document.querySelectorAll(".remove-btn");
-    const removeBtnArray = Array.from(removeBtn);
-
-    removeBtnArray.forEach((removeBtn) => {
-        removeBtn.addEventListener("click", (event) => {
-            console.log("hello");
-            const bookIdToRemove = (event.target.dataset.bookId);
-            console.log(`Removing book with ID: ${bookIdToRemove}`);
-            removeBookFromLibrary(bookIdToRemove);
-        })
-    })
-
 });
+
+bookContainer.addEventListener("click", (event) => {
+    const target = event.target;
+    
+    if (target.classList.contains("remove-btn")) {
+        const bookIdToRemove = parseInt(target.dataset.bookId, 10);
+        console.log(`Removing book with ID: ${bookIdToRemove}`);
+        removeBookFromLibrary(bookIdToRemove);
+    }
+});
+
+
+
 
 function saveLibraryToStorage(){
     localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
