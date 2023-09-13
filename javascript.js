@@ -25,7 +25,6 @@ function displayBook(){
         <p>Title: ${book.title}</p>
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
-        <p>Read?: ${book.readStatus}</p>
         <button class = "remove-btn" data-book-id="${i}">Remove Book</button>
         <input type="checkbox" class="read-checkbox" data-book-id="${i}" ${book.read ? 'checked' : ''}> Read
         `
