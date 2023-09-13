@@ -1,3 +1,8 @@
+const bookContainer = document.getElementById("bodyContainer");
+const addButton = document.getElementById("showDialog");
+const bookDialog = document.getElementById("addBookDialog");
+const confirmBtn = bookDialog.querySelector("#confirmBtn");
+
 let myLibrary = [];
 
 function Book(title, author, pages, readStatus){
@@ -16,10 +21,7 @@ function addBookToLibrary(){
     myLibrary.push(newBook);
 }
 
-const bookContainer = document.getElementById("bodyContainer");
-
 function displayBook(){
-    
 
     bodyContainer.innerHTML = "";
 
@@ -39,12 +41,6 @@ function displayBook(){
         bookContainer.appendChild(bookDiv);
     }
 }
-
-const addButton = document.getElementById("showDialog");
-const bookDialog = document.getElementById("addBookDialog");
-const confirmBtn = bookDialog.querySelector("#confirmBtn");
-
-
 
 addButton.addEventListener("click", () => {
     bookDialog.showModal();
